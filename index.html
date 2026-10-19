@@ -1516,7 +1516,25 @@ function renderMyListings(){
             '</div>';
 
     }).join("");
-    <script type="module">
+   }
+
+/* ==================================================
+   Make the functions used by onclick="..." in the
+   HTML available (module scripts keep them private)
+=================================================== */
+
+window.login          = login;
+window.register       = register;
+window.logout         = logout;
+window.showSection    = showSection;
+window.showAuth       = showAuth;
+window.togglePassword = togglePassword;
+window.confirmOrder   = confirmOrder;
+window.addProduct     = addProduct;
+window.renderProducts = renderProducts;
+
+</script>
+<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
@@ -1539,24 +1557,5 @@ function renderMyListings(){
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-}
-
-/* ==================================================
-   Make the functions used by onclick="..." in the
-   HTML available (module scripts keep them private)
-=================================================== */
-
-window.login          = login;
-window.register       = register;
-window.logout         = logout;
-window.showSection    = showSection;
-window.showAuth       = showAuth;
-window.togglePassword = togglePassword;
-window.confirmOrder   = confirmOrder;
-window.addProduct     = addProduct;
-window.renderProducts = renderProducts;
-
-</script>
-
 </body>
 </html>
